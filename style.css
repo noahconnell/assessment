@@ -1,0 +1,148 @@
+@media only screen and (max-width: 768px) {
+    
+    #container {
+        display: grid;
+        grid-template-rows: 150px 30px auto 150px;
+        grid-template-columns: 100%;
+        grid-template-areas: 
+            'header'
+            'menu'
+            'content_left'
+            'content_right'
+            'footer';
+      }
+    
+  }
+
+#container {
+    display: grid;
+    grid-template-rows: 150px 30px auto 150px;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+        'header'
+        'menu'
+        'content_left' 
+        'content_right'
+        'footer';
+  }
+
+.top{
+    grid-area: menu;
+    background-color:rgb(120, 120, 205);
+}
+
+.content1{
+    grid-area:content_left;
+}
+
+.content2{
+    grid-area:content_right;
+}
+
+.bottom{
+    grid-area:footer;
+    background-color: rgb(16, 194, 0);
+    text-align: center;
+}
+
+/* 
+================================
+GENERAL PAGE STYLING
+================================
+*/
+html{
+  height: 100%;
+  width: 100%;
+  line-height: 2; /* Sets the line height to 2 times the current font-size - eg if font size is 1.5rem, line height = 3rem. */
+ 
+}
+body {
+background: linear-gradient(white, powderblue); /*Gradient background colour*/
+font-family: 'Cairo', sans-serif; /* Web font. San-serif is the 'fall-back' font - in case the web font does not load. */
+color: #fff;
+}
+
+
+/*Link styling*/
+a {
+color: #5dc;
+text-decoration: none; /*no underlining of link*/
+}
+
+/*
+=======================================
+STYLING FOR IMAGES IN CONTENT1 SECTION
+=======================================
+*/
+
+/*General styling*/
+#content1 {
+  height:100vh;
+}
+
+#content1 img {
+  position:absolute;
+  left:0;
+  height: 100vh;
+  width:100vw;
+  object-fit: cover;
+  z-index: -999;
+}
+
+/*Animation*/
+
+@keyframes FadeInOut {
+0% {
+opacity:1;
+}
+45% {
+opacity:1;
+}
+55% {
+opacity:0;
+}
+100% {
+opacity:0;
+}
+}
+
+#content1 img.image1 {
+  animation-name: FadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  animation-direction: alternate;
+}
+
+/*
+=======================================
+STYLING TEXT IN CONTENT2 SECTION
+=======================================
+*/
+
+#content2 {
+  background-color: #f9cc01;
+  margin-bottom: -20px;
+  margin-top: -20px;
+    padding: 3px;
+
+}
+
+h1 {
+  font-size: 60px;
+  color: #143868;
+  grid-area: headline;
+  text-align: center;
+}
+
+.button {
+  color: #003b63;
+  font-size: 19px;
+  margin: 30px 10px;
+  padding: 15px 15px;
+  border: 2px solid #003b63;
+  min-width: 150px;
+  text-decoration: none;
+  font-family: 'Arial', sans-serif;
+}
+
