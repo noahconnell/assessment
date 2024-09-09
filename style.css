@@ -146,3 +146,6 @@ h1 {
   font-family: 'Arial', sans-serif;
 }
 
+.content2-block a{
+  display: inline-block;
+}
