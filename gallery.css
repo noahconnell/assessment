@@ -73,9 +73,16 @@ STYLING FOR IMAGES IN CONTENT1 SECTION
 
 /*General styling*/
 #content1 {
-  height:100vh;
-}
+    height:100vh;
+  }
+  
+  #content1 img {
+    height: 90vh;
+    width:50vw;
+  }
 
 #content1 {
     background: linear-gradient(white, powderblue);
 }
+
+
