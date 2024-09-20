@@ -35,12 +35,6 @@
 }
 
 
-.bottom{
-    grid-area:footer;
-    background-color: rgb(16, 194, 0);
-    text-align: center;
-}
-
 /* 
 ================================
 GENERAL PAGE STYLING
@@ -53,7 +47,7 @@ html{
  
 }
 body {
-background: linear-gradient(white, powderblue); /*Gradient background colour*/
+background-color: powderblue; /*Gradient background colour*/
 font-family: 'Cairo', sans-serif; /* Web font. San-serif is the 'fall-back' font - in case the web font does not load. */
 color: #fff;
 }
@@ -71,18 +65,42 @@ STYLING FOR IMAGES IN CONTENT1 SECTION
 =======================================
 */
 
-/*General styling*/
-#content1 {
-    height:100vh;
-  }
-  
-  #content1 img {
-    height: 90vh;
-    width:50vw;
-  }
-
-#content1 {
-    background: linear-gradient(white, powderblue);
+.content1 {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap */
+  justify-content: center; /* Center the items */
+  align-items: flex-start; /* Align items at the start */
+  padding: 20px; /* Add padding */
 }
 
+/* Styling for each image container */
+.image-container {
+  width: 100%; /* Keep the same width */
+  margin: 10px; /* Space between containers */
+  background: white; /* White background for contrast */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center; /* Center the text */
+  overflow: hidden; /* Prevent overflow */
+  position: relative; /* Position context for absolute children */
+  height: 250px; /* Fixed height for containers */
+}
 
+/* Image styling */
+.image-container img {
+  width: 100%; /* Make the image fill the container */
+  height: 100%; /* Ensure the image fills the height */
+  object-fit: cover; /* Cover the entire box, maintaining aspect ratio */
+}
+
+/* Styling for image descriptions */
+.image-container p {
+  padding: 100px; /* Padding for text */
+  color: #000000; /* Text color */
+}
+
+/* Ensure proper spacing around content */
+body {
+  margin: 0; /* Reset default body margin */
+  padding: 0; /* Reset default body padding */
+}
