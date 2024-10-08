@@ -82,7 +82,7 @@ STYLING FOR IMAGES IN CONTENT1 SECTION
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   text-align: center; /* Center the text */
   overflow: hidden; /* Prevent overflow */
-  position: relative; /* Position context for absolute children */
+  position: relative;
   height: 250px; /* Fixed height for containers */
 }
 
@@ -95,7 +95,7 @@ STYLING FOR IMAGES IN CONTENT1 SECTION
 
 /* Styling for image descriptions */
 .image-container p {
-  padding: 100px; /* Padding for text */
+  padding: 15px; /* Padding for text */
   color: #000000; /* Text color */
 }
 
@@ -104,3 +104,4 @@ body {
   margin: 0; /* Reset default body margin */
   padding: 0; /* Reset default body padding */
 }
+

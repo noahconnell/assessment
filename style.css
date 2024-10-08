@@ -160,3 +160,84 @@ a.button {
   text-decoration: none;
   font-family: 'Arial', sans-serif;
 }
+
+/* Membership section */
+#membership-content {
+  background-color: #f9cc01;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically centers content */
+  align-items: center; /* Horizontally centers content */
+  height: 100vh; /* Full height of viewport for vertical centering */
+  text-align: center; /* Center text */
+  margin: 0 auto; /* Ensure the section itself is centered */
+  padding: 0 20px; /* Add padding to avoid overflow issues */
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+/* Membership headline */
+.membership-headline {
+  font-size: 50px;
+  color: #143868;
+  margin-bottom: -25px;
+  text-align: center; /* Center text */
+  width: 100%; /* Ensure full width */
+  max-width: 800px; /* Optional limit on width */
+  margin-left: auto; /* Ensure headline is centered horizontally */
+  margin-right: auto; /* Ensure headline is centered horizontally */
+  box-sizing: border-box; /* Avoid width overflow issues */
+}
+
+/* Membership description paragraphs */
+.membership-block p {
+  color: #143868;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center; /* Center the text */
+  width: 100%; /* Ensure full width */
+  max-width: 800px; /* Optional limit on width */
+  box-sizing: border-box; /* Avoid width overflow issues */
+}
+
+/* Membership options container */
+.membership-options {
+  display: flex;
+  flex-direction: column; /* Stack boxes vertically */
+  align-items: center; /* Center boxes horizontally */
+  gap: 20px; /* Space between boxes */
+  width: 100%; /* Full width */
+  max-width: 800px; /* Optional limit on width */
+  box-sizing: border-box; /* Ensure proper box alignment */
+}
+
+/* Membership option boxes (h2 and h3) */
+.membership-options h2, .membership-options h3 {
+  font-size: 24px;
+  color: #f9cc01;
+  background-color: #143868;
+  padding: 10px 25px;
+  border-radius: 10px;
+  text-align: center; /* Center text inside boxes */
+  width: 100%; /* Ensure full width */
+  max-width: 400px; /* Control width of boxes */
+  margin: 0 auto; /* Ensure boxes are centered */
+  box-sizing: border-box; /* Avoid width overflow */
+}
+
+/* Mail link button styling (Sign Up button) */
+.membership-block a {
+  display: inline-block; /* Button-like appearance */
+  padding: 15px 25px;
+  font-size: 18px;
+  color: #fff; /* White text */
+  background-color: #143868; /* Dark blue background */
+  border: 5px solid #143868;
+  border-radius: 10px;
+  text-decoration: none; /* No underline */
+  margin-top: 20px; /* Space above button */
+  text-align: center; /* Center the text */
+  box-sizing: border-box; /* Avoid width overflow */
+  width: 100%; /* Ensure full width */
+  max-width: 400px; /* Control button width */
+  margin: 0 auto; /* Center button horizontally */
+}
