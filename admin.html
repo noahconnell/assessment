@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="normalize.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="nav.css">
-  <title>Toy Library - Membership</title>
+  <title>Toy Library - Admin</title>
 </head>
 
 <body>
@@ -20,10 +20,9 @@
                     <div class="bar2"></div>
                     <div class="bar3"></div>
                 </li>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="toygallery.html">TOY INVENTORY</a></li>
-                <li><a href="membership.html">MEMBERSHIP</a></li> 
-                <li><a href="mailto:cromwell_toy_library@freeemails4u.com">CONTACT</a></li>
-                <li><a href="admin.html">ADMIN</a></li>
+                <li><a href="{{ url_for('templates', 'Rentals') }}">RENTALS</a></li>
+                <li><a href="{{ url_for('templates', 'Members') }}">MEMBERS</a></li>
+                <li><a href="{{ url_for('templates', 'Items') }}">ITEMS</a></li> 
             </ul>
         </div>
+
