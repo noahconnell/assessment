@@ -11,7 +11,6 @@ def get_db():
     db = sqlite3.connect(DATABASE)
     return db
 
-
 #routes go here
 @app.route('/members')
 def members():
@@ -88,6 +87,22 @@ def people_renting_toys():
     cursor.execute("SELECT Rentals.Name, Items.Item, Items.Type FROM Items, Rentals WHERE Items.Type = 'Toy' AND Items.Item = Rentals.Item")
     results = cursor.fetchall()
     return render_template('people_renting_toys.html',results=results)
+
+@app.route('/add_mem', methods=('GET', 'POST'))
+def member_add():
+    if request.method == 'POST':
+        member_name = request.form['member_name']
+        member_address = request.form['member_address']
+        member_email = request.form['member_email']
+        member_phone = request.form['member_phone']
+        member_start_date = request.form['member_start_date']
+        member_period = request.form['member_period']
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute('INSERT INTO Members (Name, Address, Email, Phone, Start_Date, Period) VALUES (?, ?, ?, ?, ?, ?);',(member_name, member_address, member_email, member_phone, member_start_date, member_period, ))
+        results = cursor.fetchall()
+        return render_template('members.html', results=results, member_name=member_name, member_address=member_address, member_email=member_email, member_phone=member_phone, member_start_date=member_start_date, member_period= member_period)
+    return render_template('add_member.html')
 
 
 #this bit of code runs the app that we just made with debug on

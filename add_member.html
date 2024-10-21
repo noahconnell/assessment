@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+</nav>
+</div>
+<div class="content">
+
+
+{% block content %}
+<h3>Which member would you like to show rentals for?</h3>
+  <form method="post" class="w3-container">
+    <br>
+    <label for="member">Member Name:</label><input type="text" id="member" name="member" value="{{ request.form['member'] }}">
+    <br>
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <label for="member_name">Name:</label><br>
+        <input type="text" id="member_name" name="member_name" required><br><br>
+        
+        <label for="member_address">Address:</label><br>
+        <input type="text" id="member_address" name="member_address" required><br><br>
+        
+        <label for="member_email">Email:</label><br>
+        <input type="email" id="member_email" name="member_email" required><br><br>
+        
+        <label for="member_phone">Phone:</label><br>
+        <input type="tel" id="member_phone" name="member_phone" required><br><br>
+        
+        <label for="member_start_date">Start Date:</label><br>
+        <input type="date" id="member_start_date" name="member_start_date" required><br><br>
+        
+        <label for="member_period">Membership Period:</label><br>
+        <select id="member_period" name="member_period" required>
+            <option value="1 month">1 Month</option>
+            <option value="3 months">3 Months</option>
+            <option value="6 months">6 Months</option>
+            <option value="1 year">1 Year</option>
+        </select><br><br>
+
+{% endblock %}
