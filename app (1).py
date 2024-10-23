@@ -11,6 +11,7 @@ def get_db():
     db = sqlite3.connect(DATABASE)
     return db
 
+
 #routes go here
 @app.route('/members')
 def members():
@@ -18,6 +19,7 @@ def members():
     cursor = db.cursor()
     cursor.execute("SELECT * FROM Members")
     results = cursor.fetchall()
+    cursor.close()
     return render_template('members.html',results=results)
 
 @app.route('/items')
@@ -26,6 +28,7 @@ def items():
     cursor = db.cursor()
     cursor.execute("SELECT * FROM Items")
     results = cursor.fetchall()
+    cursor.close()
     return render_template('items.html',results=results)
 
 @app.route('/rentals')
@@ -34,6 +37,7 @@ def rentals():
     cursor = db.cursor()
     cursor.execute("SELECT * FROM Rentals")
     results = cursor.fetchall()
+    cursor.close()
     return render_template('rentals.html',results=results)
 
 @app.route('/member_search', methods=('GET', 'POST'))
@@ -45,6 +49,7 @@ def member_search():
         cursor = db.cursor()
         cursor.execute('SELECT * FROM Members WHERE Name LIKE ?',(search_term, ))
         results = cursor.fetchall()
+        cursor.close()
         return render_template('members.html', results=results, member=member)
     return render_template('search.html')
 
@@ -54,6 +59,7 @@ def on_rent():
     cursor = db.cursor()
     cursor.execute("SELECT Rentals.Name, Rentals.Item, Rentals.Returned_Date FROM Rentals WHERE Rentals.Returned_Date IS NULL")
     results = cursor.fetchall()
+    cursor.close()
     return render_template('on_rent.html',results=results)
 
 @app.route('/oneyear_members')
@@ -62,6 +68,7 @@ def oneyear_members():
     cursor = db.cursor()
     cursor.execute("SELECT Members.Name, Members.Period FROM Members WHERE Members.Period = '1Y'")
     results = cursor.fetchall()
+    cursor.close()
     return render_template('oneyear_members.html',results=results)
 
 @app.route('/sixmonth_members')
@@ -70,6 +77,7 @@ def sixmonth_members():
     cursor = db.cursor()
     cursor.execute("SELECT Members.Name, Members.Period FROM Members WHERE Members.Period = '6M'")
     results = cursor.fetchall()
+    cursor.close()
     return render_template('sixmonth_members.html',results=results)
 
 @app.route('/people_renting_games')
@@ -78,6 +86,7 @@ def people_renting_games():
     cursor = db.cursor()
     cursor.execute("SELECT Rentals.Name, Items.Item, Items.Type FROM Items, Rentals WHERE Items.Type = 'Game' AND Items.Item = Rentals.Item")
     results = cursor.fetchall()
+    cursor.close()
     return render_template('people_renting_games.html',results=results)
 
 @app.route('/people_renting_toys')
@@ -86,6 +95,7 @@ def people_renting_toys():
     cursor = db.cursor()
     cursor.execute("SELECT Rentals.Name, Items.Item, Items.Type FROM Items, Rentals WHERE Items.Type = 'Toy' AND Items.Item = Rentals.Item")
     results = cursor.fetchall()
+    cursor.close()
     return render_template('people_renting_toys.html',results=results)
 
 @app.route('/add_mem', methods=('GET', 'POST'))
@@ -100,9 +110,30 @@ def member_add():
         db = get_db()
         cursor = db.cursor()
         cursor.execute('INSERT INTO Members (Name, Address, Email, Phone, Start_Date, Period) VALUES (?, ?, ?, ?, ?, ?);',(member_name, member_address, member_email, member_phone, member_start_date, member_period, ))
+        db.commit()
+        cursor.close()
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM Members")
         results = cursor.fetchall()
+        cursor.close()
         return render_template('members.html', results=results, member_name=member_name, member_address=member_address, member_email=member_email, member_phone=member_phone, member_start_date=member_start_date, member_period= member_period)
     return render_template('add_member.html')
+
+@app.route('/delete_mem', methods=('GET', 'POST'))
+def member_delete():
+    if request.method == 'POST':
+        member_name = request.form['member_name']
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute('DELETE FROM Members WHERE Name = ?', (member_name,))
+        db.commit()
+        cursor.close()
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM Members")
+        results = cursor.fetchall()
+        cursor.close()
+        return render_template('members.html', results=results, deleted_member_name=member_name)
+    return render_template('delete_member.html')
 
 
 #this bit of code runs the app that we just made with debug on

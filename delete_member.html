@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+</nav>
+</div>
+<div class="content">
+
+{% block content %}
+<h3>Delete a Member:</h3>
+<form method="POST" class="w3-container">
+    <br>
+    <label for="member_name">Member Name:</label>
+    <input type="text" id="member_name" name="member_name" required value="{{ request.form['member_name'] }}"><br><br>
+
+    <button type="submit">Delete</button>
+</form>
+
+{% if deleted_member_name %}
+    <p>Member "{{ deleted_member_name }}" has been deleted successfully.</p>
+{% endif %}
+{% endblock %}
