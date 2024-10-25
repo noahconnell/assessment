@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+</nav>
+</div>
+<div class="content">
+
+{% block content %}
+<h3>Please fill out the rental information:</h3>
+<form method="post" class="w3-container">
+    <br>
+    <label for="rental_id">Rental ID:</label>
+    <input type="text" id="rental_id" name="rental_id" required value="{{ request.form['rental_id'] }}"><br><br>
+
+    <label for="rental_name">Name:</label>
+    <input type="text" id="rental_name" name="rental_name" required value="{{ request.form['rental_name'] }}"><br><br>
+
+    <label for="rental_item">Item:</label>
+    <input type="text" id="rental_item" name="rental_item" required value="{{ request.form['rental_item'] }}"><br><br>
+
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
