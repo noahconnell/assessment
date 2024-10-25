@@ -7,6 +7,10 @@
         <th width="200">RENTAL ID</th>
         <th width="200">NAME</th>
         <th width="200">ITEM</th>
+        <th width="200">RENTAL DATE</th>
+        <th width="200">RETURNED DATE</th>
+        <th width="200">RENTAL COST</th>
+        <th width="200">LATE FEE</th>
     </tr>
     <!-- iterate through the results use the symbols to show "code" in the template -->
     {% for item in results%} 
@@ -14,6 +18,10 @@
         <td>{{ item[0] }}</td>
         <td>{{ item[1] }}</td>
         <td>{{ item[2] }}</td>
+        <td>{{ item[3] }}</td>
+        <td>{{ item[4] }}</td>
+        <td>{{ item[5] }}</td>
+        <td>{{ item[6] }}</td>
     </tr>
     <!-- must have an "endfor"! dont forget -->
     {% endfor %}

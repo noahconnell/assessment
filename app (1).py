@@ -135,6 +135,27 @@ def member_delete():
         return render_template('members.html', results=results, deleted_member_name=member_name)
     return render_template('delete_member.html')
 
+@app.route('/add_rent', methods=('GET', 'POST'))
+def rental_add():
+    if request.method == 'POST':
+        rental_name = request.form['rental_name']
+        rental_item = request.form['rental_item']
+        rental_rental_date = request.form['rental_rental_date']
+        rental_returned_date = request.form['rental_returned_date']
+        rental_cost = request.form['rental_cost']
+        rental_late_fee = request.form['rental_late_fee']
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute('INSERT INTO Rentals (Name, Item, Rental_Date, Returned_Date, Rental_Cost, Late_Fee) VALUES (?, ?, ?, ?, ?, ?);',(rental_name, rental_item, rental_rental_date, rental_returned_date, rental_cost, rental_late_fee))
+        db.commit()
+        cursor.close()
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM Rentals")
+        results = cursor.fetchall()
+        cursor.close()
+        return render_template('rentals.html', results=results, rental_name = rental_name, rental_item = rental_item, rental_rental_date = rental_rental_date, rental_returned_date = rental_returned_date, rental_cost = rental_cost, rental_late_fee = rental_late_fee)
+    return render_template('add_rental.html')
+
 
 #this bit of code runs the app that we just made with debug on
 if __name__ == "__main__":
