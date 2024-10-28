@@ -156,6 +156,24 @@ def rental_add():
         return render_template('rentals.html', results=results, rental_name = rental_name, rental_item = rental_item, rental_rental_date = rental_rental_date, rental_returned_date = rental_returned_date, rental_cost = rental_cost, rental_late_fee = rental_late_fee)
     return render_template('add_rental.html')
 
+@app.route('/add_item', methods=('GET', 'POST'))
+def item_add():
+    if request.method == 'POST':
+        item_name = request.form['item_name']
+        item_type = request.form['item_type']
+        purchase_price = request.form['purchase_price']
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute('INSERT INTO Items (Item, Type, Purchase_Price) VALUES (?, ?, ?);', (item_name, item_type, purchase_price))
+        db.commit()
+        cursor.close()
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM Items")
+        results = cursor.fetchall()
+        cursor.close()
+        return render_template('items.html', results=results, item_name=item_name, item_type=item_type, purchase_price=purchase_price)
+    return render_template('add_item.html')
+
 
 #this bit of code runs the app that we just made with debug on
 if __name__ == "__main__":

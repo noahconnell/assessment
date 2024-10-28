@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Cairo:400,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="normalize.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
   <title>Toy Library - Admin</title>
 </head>
 
@@ -14,7 +14,7 @@
     <div class="container">
         <div class="top">
             <ul id="menu">
-                <a href="index.html"><img src="Images/toylibrary_logo.png"></a>
+                <a href="index.html"><img src="{{ url_for('static', filename='toylibrary_logo.png') }}"></a>
                 <li class="toggle">
                     <div class="bar1"></div>
                     <div class="bar2"></div>
@@ -27,6 +27,8 @@
                     <div class="bar9"></div>
                     <div class="bar10"></div>
                     <div class="bar11"></div>
+                    <div class="bar12"></div>
+                    <div class="bar13"></div>
                 </li>
                 <li><a href="{{ url_for('rentals') }}">RENTALS</a></li>
                 <li><a href="{{ url_for('members') }}">MEMBERS</a></li>
@@ -39,6 +41,8 @@
                 <li><a href="{{ url_for('people_renting_games') }}">PEOPLE RENTING GAMES</a></li> 
                 <li><a href="{{ url_for('people_renting_toys') }}">PEOPLE RENTING TOYS</a></li> 
                 <li><a href="{{ url_for('member_delete') }}">DELETE MEMBER</a></li> 
+                <li><a href="{{ url_for('rental_add') }}">ADD RENTAL</a></li> 
+                <li><a href="{{ url_for('item_add') }}">ADD ITEM</a></li> 
             </ul>
         </div>
 
