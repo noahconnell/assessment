@@ -4,51 +4,54 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Cairo:400,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style_flask.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='normalize.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='nav_flask.css') }}">
   <title>Toy Library - Admin</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="top">
-            <ul id="menu">
-                <a href="index.html"><img src="{{ url_for('static', filename='toylibrary_logo.png') }}"></a>
-                <li class="toggle">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                    <div class="bar4"></div>
-                    <div class="bar5"></div>
-                    <div class="bar6"></div>
-                    <div class="bar7"></div>
-                    <div class="bar8"></div>
-                    <div class="bar9"></div>
-                    <div class="bar10"></div>
-                    <div class="bar11"></div>
-                    <div class="bar12"></div>
-                    <div class="bar13"></div>
-                </li>
-                <li><a href="{{ url_for('rentals') }}">RENTALS</a></li>
-                <li><a href="{{ url_for('members') }}">MEMBERS</a></li>
-                <li><a href="{{ url_for('on_rent') }}">ON RENT</a></li> 
-                <li><a href="{{ url_for('items') }}">ITEMS</a></li>
-                <li><a href="{{ url_for('member_add') }}">ADD MEMBER</a></li>
-                <li><a href="{{ url_for('member_search') }}">SEARCH</a></li> 
-                <li><a href="{{ url_for('sixmonth_members') }}">SIX MONTH MEMBERS</a></li>
-                <li><a href="{{ url_for('oneyear_members') }}">ONE YEAR MEMBERS</a></li> 
-                <li><a href="{{ url_for('people_renting_games') }}">PEOPLE RENTING GAMES</a></li> 
-                <li><a href="{{ url_for('people_renting_toys') }}">PEOPLE RENTING TOYS</a></li> 
-                <li><a href="{{ url_for('member_delete') }}">DELETE MEMBER</a></li> 
-                <li><a href="{{ url_for('rental_add') }}">ADD RENTAL</a></li> 
-                <li><a href="{{ url_for('item_add') }}">ADD ITEM</a></li> 
-            </ul>
-        </div>
+  <div class="container">
+    <div class="top">
+      <ul id="menu">
+        <a href="index.html"><img src="{{ url_for('static', filename='toylibrary_logo.png') }}" alt="Toy Library Logo"></a>
+        
+        <!-- Toggle Button with 3 Bars -->
+        <li class="toggle" onclick="toggleMenu()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </li>
+        
+        <!-- Menu Links -->
+        <li><a href="{{ url_for('rentals') }}">RENTALS</a></li>
+        <li><a href="{{ url_for('members') }}">MEMBERS</a></li>
+        <li><a href="{{ url_for('on_rent') }}">ON RENT</a></li> 
+        <li><a href="{{ url_for('items') }}">ITEMS</a></li>
+        <li><a href="{{ url_for('member_add') }}">ADD MEMBER</a></li>
+        <li><a href="{{ url_for('member_search') }}">SEARCH</a></li> 
+        <li><a href="{{ url_for('sixmonth_members') }}">SIX MONTH MEMBERS</a></li>
+        <li><a href="{{ url_for('oneyear_members') }}">ONE YEAR MEMBERS</a></li> 
+        <li><a href="{{ url_for('people_renting_games') }}">PEOPLE RENTING GAMES</a></li> 
+        <li><a href="{{ url_for('people_renting_toys') }}">PEOPLE RENTING TOYS</a></li> 
+        <li><a href="{{ url_for('member_delete') }}">DELETE MEMBER</a></li> 
+        <li><a href="{{ url_for('rental_add') }}">ADD RENTAL</a></li> 
+        <li><a href="{{ url_for('item_add') }}">ADD ITEM</a></li> 
+      </ul>
+    </div>
 
-
-    <!-- This is the main page with most stuff we need in it -->
-    <!-- This starts and ends a 'block' that the child template will fill out with stuff -->
     {% block content %}{% endblock %}
+  </div>
+
+  <!-- JavaScript for Toggle Functionality -->
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('open');
+    }
+  </script>
+  
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+  <script src="index.js"></script>
+
 </body>
 </html>

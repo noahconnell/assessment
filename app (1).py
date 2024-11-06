@@ -4,7 +4,8 @@ import sqlite3   #for the database stuff
 app = Flask(__name__)
 
 #the path and filename for the database
-DATABASE = "U:\\Profile\\Documents\\Toy_Library_2\\Toy_Library_database.db"
+DATABASE = "C:\\Users\\noahr\\OneDrive\\Documents\\Toy_Library_2\\Toy_Library_Database.db"
+
 
 #cool function to automatcally connect and query
 def get_db():

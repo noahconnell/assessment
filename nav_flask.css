@@ -1,0 +1,120 @@
+/*
+================================
+NAVIGATION STYLING
+================================
+*/
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  transition: all 0.3s;
+  z-index: 999;
+}
+
+.container img {
+  width: 8%;
+  float: left;
+  margin-bottom: 10px;
+}
+
+#menu {
+  background-color: #0080f7;
+  text-align: center;
+  width: 230px;
+  height: 100%;
+  position: fixed;
+  margin: 0;
+  right: -230px; /* Hidden off-screen initially */
+  padding: 0;
+  transition: right 0.3s; /* Smooth slide-in effect */
+}
+
+#menu.open {
+  right: 0; /* Shows menu when open class is added */
+}
+
+#menu li {
+  display: block;
+}
+
+#menu li a {
+  display: block;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 5px 20px;  /* Adjust padding for better spacing */
+  border: 2px solid transparent;
+  text-decoration: none;
+  margin: 10px 0;  /* Reduced margin to decrease gap */
+}
+
+#menu li a:hover, #menu li a:focus {
+  border-color: transparent;
+  background: #0077B6;
+  color: #CAF0F8;
+}
+
+/* 
+===============================
+MENU ICON ('BURGER')
+===============================
+*/
+
+.toggle {
+  display: block;
+  position: absolute;
+  left: -65px;
+  cursor: pointer;
+  background: #0077B6;
+  padding: 15px 15px 10px;
+}
+
+.toggle .bar1,
+.toggle .bar2,
+.toggle .bar3 {
+  width: 35px;
+  height: 4px;
+  background: whitesmoke;
+  margin-bottom: 8px;
+  transition: all 0.4s;
+}
+
+#menu.open .toggle .bar1 {
+  transform: rotate(45deg) translate(8px, 11px);
+}
+#menu.open .toggle .bar2 {
+  opacity: 0;
+}
+#menu.open .toggle .bar3 {
+  transform: rotate(-45deg) translate(5px, -10px);
+}
+
+/* Larger screens (750px or more) */
+@media (min-width: 750px) {
+
+  /* Hide hamburger icon */
+  .toggle {
+      display: none;
+  }
+
+  /* Menu displays inline across the top */
+  #menu {
+      margin: 0;
+      padding: 15px 0;
+      width: 100%;
+      display: inline-block;
+      position: relative;
+      right: 0;
+      height: auto;
+  }
+
+  #menu li {
+      display: inline-block;
+  }
+
+  #menu li a:hover {
+      border: 2px solid #fff;
+      background: transparent;
+      color: white;
+  }
+}
