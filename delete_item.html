@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+</nav>
+</div>
+<div class="content">
+
+{% block content %}
+<h3>Delete an item:</h3>
+<form method="post" class="w3-container">
+    <br>
+    <label for="item_name">Item Name:</label>
+    <input type="text" id="item_name" name="item_name" required value="{{ request.form['item_name'] }}"><br><br>
+
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

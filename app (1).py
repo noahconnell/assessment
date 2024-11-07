@@ -157,6 +157,23 @@ def rental_add():
         return render_template('rentals.html', results=results, rental_name = rental_name, rental_item = rental_item, rental_rental_date = rental_rental_date, rental_returned_date = rental_returned_date, rental_cost = rental_cost, rental_late_fee = rental_late_fee)
     return render_template('add_rental.html')
 
+@app.route('/delete_rent', methods=('GET', 'POST'))
+def rental_delete():
+    if request.method == 'POST':
+        rental_name = request.form['rental_name']
+        rental_item = request.form['rental_item']  
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute('DELETE FROM Rentals WHERE Name = ? AND Item = ?;', (rental_name, rental_item))
+        db.commit()
+        cursor.close()
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM Rentals")
+        results = cursor.fetchall()
+        cursor.close()
+        return render_template('rentals.html', results=results)
+    return render_template('delete_rental.html')
+
 @app.route('/add_item', methods=('GET', 'POST'))
 def item_add():
     if request.method == 'POST':
@@ -174,6 +191,22 @@ def item_add():
         cursor.close()
         return render_template('items.html', results=results, item_name=item_name, item_type=item_type, purchase_price=purchase_price)
     return render_template('add_item.html')
+
+@app.route('/delete_item', methods=('GET', 'POST'))
+def item_delete():
+    if request.method == 'POST':
+        item_name = request.form['item_name']
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute('DELETE FROM Items WHERE Item = ?;', (item_name,))
+        db.commit()
+        cursor.close()
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM Items")
+        results = cursor.fetchall()
+        cursor.close()
+        return render_template('items.html', results=results)
+    return render_template('delete_item.html')
 
 
 #this bit of code runs the app that we just made with debug on

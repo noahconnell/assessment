@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Cairo:400,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="normalize.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="nav.css">
-  <title>Toy Library - Admin</title>
+  <link rel="stylesheet" href="static/normalize.css">
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="static/nav.css">
+  <title>Toy Library - Membership</title>
 </head>
 
 <body>
@@ -20,9 +20,30 @@
                     <div class="bar2"></div>
                     <div class="bar3"></div>
                 </li>
-                <li><a href="{{ url_for('templates', 'Rentals') }}">RENTALS</a></li>
-                <li><a href="{{ url_for('templates', 'Members') }}">MEMBERS</a></li>
-                <li><a href="{{ url_for('templates', 'Items') }}">ITEMS</a></li> 
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="toygallery.html">TOY INVENTORY</a></li>
+                <li><a href="membership.html">MEMBERSHIP</a></li> 
+                <li><a href="mailto:cromwell_toy_library@freeemails4u.com">CONTACT</a></li>
+                <li><a href="admin.html">ADMIN</a></li>
             </ul>
         </div>
 
+        <!-- Membership Section -->
+        <section id="membership-content">
+            <div class="membership-block">
+                <h1 class="membership-headline">Admin Page</h1>
+                <p>This is just a static page. Run the app.py(1) file and then you can access the actual admin page</p> 
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section id="bottom">
+            <div class="bottom"><small>&copy; Toy Library 2024 - Website by Noah Connell.</small></div>
+        </section>
+
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+        <script src="index.js"></script>
+
+    </div>
+</body>
+</html>

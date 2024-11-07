@@ -41,7 +41,7 @@ NAVIGATION STYLING
 #menu li a {
   display: block;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.5rem;  /* Adjusted in media query for smaller screens */
   padding: 5px 20px;  /* Adjust padding for better spacing */
   border: 2px solid transparent;
   text-decoration: none;
@@ -116,5 +116,31 @@ MENU ICON ('BURGER')
       border: 2px solid #fff;
       background: transparent;
       color: white;
+  }
+}
+
+/* Smaller screens (750px or less) */
+@media (max-width: 750px) {
+
+  /* Ensure the logo appears centered above the menu links */
+  .container img {
+      width: 20%; /* Make the logo even smaller */
+      display: block;
+      margin: 0 auto 3px; /* Centered with minimal space below */
+      float: none; /* Remove float for centering */
+  }
+
+  #menu {
+      text-align: center;
+      padding-top: 5px; /* Further reduced space above links */
+  }
+
+  #menu li {
+      display: block;
+  }
+
+  /* Make the links smaller */
+  #menu li a {
+      font-size: 1.2rem; /* Reduced font size for links */
   }
 }

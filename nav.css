@@ -5,123 +5,134 @@ NAVIGATION STYLING
 */
 
 .container {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    transition: all 0.3s; /*Added so that transition between 'views' is smooth*/
-    z-index: 999; /*z-index ensures menu sits on top of everything else*/
-    }
-    
-    /*When the user clicks on the 'hamburger' the container 'opens' by moving using the transform property. See notes in Workbook. */
-    .menu-open {
-    transform: translate(-230px, 0);
-    }
-    
-    .container img {
-      width: 8%;
-      float: left;
-      margin-bottom: 10px;
-    }
-    
-    
-    #menu {
-    background-color: #0080f7;
-    text-align: center;
-    width: 230px;
-    height: 100%;
-    position: fixed;
-    margin: 0;
-    right: -230px; 
-    padding: 0px;
-    }
-    
-    #menu li {
-    display: block;
-    }
-    
-    #menu li a {
-    display: block;
-    color: #fff;
-    font-size: 1.5rem;
-    padding: 5px 20px;
-    border: 2px solid transparent;
-    text-decoration: none;
-    margin: 40px;
-    margin-top: 50px;
-    }
-    
-    #menu li a:hover, #menu li a:focus {
-    border-color: transparent;
-    background: #0077B6;
-    color:#CAF0F8;
-    }
-    
-    /* 
-    ================================
-    MENU ICON ('BURGER')
-    ================================
-    */
-    
-    /* Background for the 'burger' */
-    .toggle {
-    display: block;
-    position: absolute;
-    left: -65px;
-    cursor: pointer;
-    background:#0077B6;
-    padding: 15px 15px 10px;
-    }
-    
-    /*Styling of the individual bars that make up the burger.*/
-    .toggle .bar1,
-    .toggle .bar2,
-    .toggle .bar3 {
-    width: 35px;
-    height: 4px;
-    background: whitesmoke;
-    margin-bottom: 8px;
-    transition: all 0.4s; /*Speed of transition from bars to cross (when tapped)*/
-    }
-    
-    /* Change it to an X */
-    #menu.open .toggle .bar1 {
-    transform: rotate(45deg) translate(8px, 11px);
-    }
-    #menu.open .toggle .bar2 {
-    opacity: 0;
-    }
-    #menu.open .toggle .bar3 {
-    transform: rotate(-45deg) translate(5px, -10px);
-    }
-    
-    
-    /*The following styling is only applied when the viewport is at least 750px wide - ie bigger screens*/
-    @media (min-width: 750px) {
-    
-    /*'Hamburger' not displayed*/
-    .toggle {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  transition: all 0.3s; /*Added so that transition between 'views' is smooth*/
+  z-index: 999; /*z-index ensures menu sits on top of everything else*/
+}
+  
+/*When the user clicks on the 'hamburger' the container 'opens' by moving using the transform property. See notes in Workbook. */
+.menu-open {
+  transform: translate(-230px, 0);
+}
+
+.container img {
+  width: 8%;
+  float: left;
+  margin-bottom: 10px;
+}
+
+
+#menu {
+  background-color: #0080f7;
+  text-align: center;
+  width: 230px;
+  height: 100%;
+  position: fixed;
+  margin: 0;
+  right: -230px; 
+  padding: 0px;
+}
+
+#menu li {
+  display: block;
+}
+
+#menu li a {
+  display: block;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 5px 20px;
+  border: 2px solid transparent;
+  text-decoration: none;
+  margin: 40px;
+  margin-top: 50px;
+}
+
+#menu li a:hover, #menu li a:focus {
+  border-color: transparent;
+  background: #0077B6;
+  color:#CAF0F8;
+}
+
+/* 
+================================
+MENU ICON ('BURGER')
+================================
+*/
+
+/* Background for the 'burger' */
+.toggle {
+  display: block;
+  position: absolute;
+  left: -65px;
+  cursor: pointer;
+  background:#0077B6;
+  padding: 15px 15px 10px;
+}
+
+/*Styling of the individual bars that make up the burger.*/
+.toggle .bar1,
+.toggle .bar2,
+.toggle .bar3 {
+  width: 35px;
+  height: 4px;
+  background: whitesmoke;
+  margin-bottom: 8px;
+  transition: all 0.4s; /*Speed of transition from bars to cross (when tapped)*/
+}
+
+/* Change it to an X */
+#menu.open .toggle .bar1 {
+  transform: rotate(45deg) translate(8px, 11px);
+}
+#menu.open .toggle .bar2 {
+  opacity: 0;
+}
+#menu.open .toggle .bar3 {
+  transform: rotate(-45deg) translate(5px, -10px);
+}
+
+
+/*The following styling is only applied when the viewport is at least 750px wide - ie bigger screens*/
+@media (min-width: 750px) {
+
+  /*'Hamburger' not displayed*/
+  .toggle {
       display: none;
-    }
-    
-    /*Menu in inline block (across top of screen)*/
-    #menu {
+  }
+
+  /*Menu in inline block (across top of screen)*/
+  #menu {
       margin: 0;
       padding: 15px 0;
       width:100%;
       display: inline-block;
       position:relative;
       right: 0;
-    }
-    
-    /*Items on menu are also an inline-block (rather than under each other)*/
-    #menu li{
+  }
+
+  /*Items on menu are also an inline-block (rather than under each other)*/
+  #menu li{
       display: inline-block;
-    }
-    
-    /*Different styling for when mouse cursor hovered over menu items/*/
-    #menu li a:hover {
+  }
+
+  /*Different styling for when mouse cursor hovered over menu items/*/
+  #menu li a:hover {
       border: 2px solid #fff;
       background: transparent;
       color: white;
-    }
-    }
+  }
+}
+
+/* Center and enlarge logo on screens 750px or smaller */
+@media (max-width: 750px) {
+  .container img {
+      width: 70%; /* Increase logo size further */
+      display: block;
+      margin: 0 auto 10px auto; /* Center the logo horizontally */
+      float: none; /* Remove float */
+  }
+}
+
