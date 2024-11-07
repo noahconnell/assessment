@@ -1,65 +1,61 @@
 @media only screen and (max-width: 768px) {
-    
-    #container {
-        display: grid;
-        grid-template-rows: 150px 30px auto 150px;
-        grid-template-columns: 100%;
-        grid-template-areas: 
-            'header'
-            'menu'
-            'content_left'
-            'footer';
-      }
-    
-  }
+  #container {
+      display: grid;
+      grid-template-rows: 150px 30px auto 150px;
+      grid-template-columns: 100%;
+      grid-template-areas: 
+          'header'
+          'menu'
+          'content_left'
+          'footer';
+    }
+}
 
 #container {
-    display: grid;
-    grid-template-rows: 150px 30px auto 150px;
-    grid-template-columns: 50% 50%;
-    grid-template-areas: 
-        'header'
-        'menu'
-        'content_left' 
-        'content_right'
-        'footer';
-  }
-
-.top{
-    grid-area: menu;
-    background-color:rgb(120, 120, 205);
+  display: grid;
+  grid-template-rows: 150px 30px auto 150px;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: 
+      'header'
+      'menu'
+      'content_left' 
+      'content_right'
+      'footer';
 }
 
-.content1{
-    grid-area:content_left;
+.top {
+  grid-area: menu;
+  background-color: rgb(120, 120, 205);
 }
 
+.content1 {
+  grid-area: content_left;
+}
 
 /* 
 ================================
 GENERAL PAGE STYLING
 ================================
 */
-html{
+html {
   height: 100%;
   width: 100%;
-  line-height: 2; /* Sets the line height to 2 times the current font-size - eg if font size is 1.5rem, line height = 3rem. */
- 
+  line-height: 2; /* Sets the line height to 2 times the current font-size */
 }
+
 body {
-background-color: powderblue; /*Gradient background colour*/
-font-family: 'Cairo', sans-serif; /* Web font. San-serif is the 'fall-back' font - in case the web font does not load. */
-color: #fff;
+  background-color: powderblue; /* Gradient background colour */
+  font-family: 'Cairo', sans-serif; /* Web font */
+  color: #fff;
 }
 
-
-/*Link styling*/
+/* Link styling */
 a {
-color: #5dc;
-text-decoration: none; /*no underlining of link*/
+  color: #5dc;
+  text-decoration: none; /* No underlining of link */
 }
 
-/*
+/* 
 =======================================
 STYLING FOR IMAGES IN CONTENT1 SECTION
 =======================================
@@ -73,6 +69,12 @@ STYLING FOR IMAGES IN CONTENT1 SECTION
   padding: 20px; /* Add padding */
 }
 
+/* Set a high z-index for the navigation */
+#menu {
+  position: relative;
+  z-index: 999; /* High z-index to keep nav in front */
+}
+
 /* Styling for each image container */
 .image-container {
   width: 100%; /* Keep the same width */
@@ -84,6 +86,7 @@ STYLING FOR IMAGES IN CONTENT1 SECTION
   overflow: hidden; /* Prevent overflow */
   position: relative;
   height: 250px; /* Fixed height for containers */
+  z-index: 0; /* Ensure image containers are above background elements but below the nav */
 }
 
 /* Image styling */
@@ -104,4 +107,3 @@ body {
   margin: 0; /* Reset default body margin */
   padding: 0; /* Reset default body padding */
 }
-
